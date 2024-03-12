@@ -1,0 +1,31 @@
+scheme: http
+hostname: localhost
+reverse-proxy-port: ${GATEWAY_PORT}
+authorization-server-port: ${KEYCLOAK_PORT}
+authorization-server-prefix: ${KC_HTTP_RELATIVE_PATH}
+authorization-server-uri: ${scheme}://${hostname}:${authorization-server-port}${authorization-server-prefix}
+bff-port: ${BFF_PORT}
+bff-prefix: /bff
+bff-uri: ${scheme}://${hostname}:${bff-port}
+server:
+  port: ${reverse-proxy-port}
+
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      routes:
+        # Authorization-server
+        - id: authorization-server
+          uri: ${authorization-server-uri}
+          predicates:
+            - Path=${authorization-server-prefix}/**
+
+        # BFF
+        - id: bff
+          uri: ${bff-uri}
+          predicates:
+            - Path=${bff-prefix}/**
+          filters:
+            - StripPrefix=1
