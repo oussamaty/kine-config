@@ -1,7 +1,7 @@
 spring:
+  port: ${DISCOVERY_PORT}
   application:
     name: ${DISCOVERY_NAME}
-  port: ${DISCOVERY_PORT}
 
 eureka:
   client:
