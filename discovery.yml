@@ -6,4 +6,4 @@ spring:
 eureka:
   client:
     region: default
-    registryFetchIntervalSeconds: 30
+    registry-fetch-interval-seconds: 30
