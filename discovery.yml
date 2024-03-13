@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: ${DISCOVERY_NAME}
+  port: ${DISCOVERY_PORT}
+
+eureka:
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5

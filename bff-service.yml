@@ -16,6 +16,9 @@ server:
   port: ${bff-port}
 
 spring:
+  application:
+    name: ${BFF_SERVICE_NAME}
+  port: ${BFF_PoRT}
   cloud:
     gateway:
       routes:
@@ -41,6 +44,11 @@ spring:
             client-id: ${client-id}
             client-secret: ${client-secret}
             scope: openid,profile,email,offline_access
+
+eureka:
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
 
 com:
   c4-soft:

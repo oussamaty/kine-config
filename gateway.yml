@@ -11,6 +11,9 @@ server:
   port: ${reverse-proxy-port}
 
 spring:
+  application:
+    name: ${GATEWAY_NAME}
+  port: ${GATEWAY_PORT}
   cloud:
     gateway:
       default-filters:
@@ -29,3 +32,8 @@ spring:
             - Path=${bff-prefix}/**
           filters:
             - StripPrefix=1
+
+eureka:
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
