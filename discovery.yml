@@ -2,8 +2,3 @@ spring:
   port: ${DISCOVERY_PORT}
   application:
     name: ${DISCOVERY_NAME}
-
-eureka:
-  client:
-    region: default
-    registry-fetch-interval-seconds: 30
