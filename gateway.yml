@@ -1,9 +1,11 @@
 scheme: http
-hostname: localhost
+hostname: gateway
 reverse-proxy-port: ${GATEWAY_PORT}
 authorization-server-port: ${KEYCLOAK_PORT}
 authorization-server-prefix: ${KC_HTTP_RELATIVE_PATH}
-authorization-server-uri: ${scheme}://${hostname}:${authorization-server-port}${authorization-server-prefix}
+authorization-server-uri: ${KC_HOSTNAME_URL}
+admin-authorization-server-uri: ${KC_HOSTNAME_ADMIN_URL}
+admin-authorization-server-prefix: ${KC_HTTP_ADMIN_RELATIVE_PATH}
 bff-port: ${BFF_PORT}
 bff-prefix: /bff
 bff-uri: ${scheme}://${hostname}:${bff-port}
@@ -23,6 +25,11 @@ spring:
           uri: ${authorization-server-uri}
           predicates:
             - Path=${authorization-server-prefix}/**
+
+        - id: admin-authorization-server
+          uri: ${admin-authorization-server-uri}
+          redicates:
+            - Path=${admin-authorization-server-prefix}/**
 
         # BFF
         - id: bff
