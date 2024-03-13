@@ -1,5 +1,7 @@
-spring:
+server:
   port: ${DISCOVERY_PORT}
+
+spring:
   application:
     name: ${DISCOVERY_NAME}
 

@@ -1,7 +1,9 @@
+server:
+  port: ${FODD_SERVICE_PORT}
+
 spring:
   application:
     name: ${FODD_SERVICE_NAME}
-  port: ${FODD_SERVICE_PORT}
   datasource:
     url: ${FOOD_SPRING_DATASOURCE_URL}
     username: ${FOOD_DB_NAME}

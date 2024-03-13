@@ -13,7 +13,6 @@ server:
 spring:
   application:
     name: ${GATEWAY_NAME}
-  port: ${GATEWAY_PORT}
   cloud:
     gateway:
       default-filters:
