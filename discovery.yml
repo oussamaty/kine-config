@@ -2,3 +2,10 @@ spring:
   port: ${DISCOVERY_PORT}
   application:
     name: ${DISCOVERY_NAME}
+
+eureka:
+  instance:
+    hostname: discovery
+  client:
+    register-with-eureka: false
+    fetch-registry: false
