@@ -13,7 +13,7 @@ spring:
     name: ${FOOD_SERVICE_NAME}
   datasource:
     url: ${FOOD_SPRING_DATASOURCE_URL}
-    username: ${FOOD_DB_NAME}
+    username: ${FOOD_DB_USER}
     password: ${FOOD_DB_PASSWORD}
   jpa:
     hibernate:
