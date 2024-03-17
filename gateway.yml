@@ -24,7 +24,13 @@ spring:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       routes:
-        # BFF
+        # Keycloak
+        - id: authorization-server
+          uri: ${authorization-server-uri}
+          predicates:
+            - Path=${authorization-server-prefix}/**
+
+        # Food Service
         - id: food-service
           uri: ${food-url}
           predicates:
