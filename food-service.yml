@@ -1,5 +1,5 @@
 server:
-  port: ${FODD_SERVICE_PORT}
+  port: ${FOOD_SERVICE_PORT}
   error:
     include-message: always
   ssl:
@@ -10,7 +10,7 @@ permit-all: /public/**
 
 spring:
   application:
-    name: ${FODD_SERVICE_NAME}
+    name: ${FOOD_SERVICE_NAME}
   datasource:
     url: ${FOOD_SPRING_DATASOURCE_URL}
     username: ${FOOD_DB_NAME}
