@@ -16,12 +16,6 @@ spring:
   cloud:
     gateway:
       routes:
-        # Keycloak
-        - id: authorization-server
-          uri: ${KC_HOSTNAME_URL}
-          predicates:
-            - Path=${KC_HTTP_RELATIVE_PATH}/**
-
         # Food Service
         - id: food-service
           uri: ${food-url}
