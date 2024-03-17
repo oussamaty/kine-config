@@ -6,38 +6,29 @@ authorization-server-prefix: ${KC_HTTP_RELATIVE_PATH}
 authorization-server-uri: ${KC_HOSTNAME_URL}
 admin-authorization-server-uri: ${KC_HOSTNAME_ADMIN_URL}
 admin-authorization-server-prefix: ${KC_HTTP_ADMIN_RELATIVE_PATH}
-bff-port: ${BFF_PORT}
-bff-prefix: /bff
-bff-uri: ${scheme}://${hostname}:${bff-port}
+food-url: lb//${FOOD_SERVICE_NAME}
+food-prefix: /api/v1/food
 server:
   port: ${reverse-proxy-port}
 
 spring:
   application:
     name: ${GATEWAY_NAME}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KC_ISSUER}
   cloud:
     gateway:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       routes:
-        # Authorization-server
-        - id: authorization-server
-          uri: ${authorization-server-uri}
-          predicates:
-            - Path=${authorization-server-prefix}/**
-
-        - id: admin-authorization-server
-          uri: ${admin-authorization-server-uri}
-          redicates:
-            - Path=${admin-authorization-server-prefix}/**
-
         # BFF
-        - id: bff
-          uri: ${bff-uri}
+        - id: food-service
+          uri: ${food-url}
           predicates:
-            - Path=${bff-prefix}/**
-          filters:
-            - StripPrefix=1
+            - Path=${food-prefix}/**
 
 eureka:
   client:
