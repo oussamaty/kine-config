@@ -1,15 +1,9 @@
-scheme: http
-hostname: gateway
-reverse-proxy-port: ${GATEWAY_PORT}
-authorization-server-port: ${KEYCLOAK_PORT}
-authorization-server-prefix: ${KC_HTTP_RELATIVE_PATH}
-authorization-server-uri: ${KC_HOSTNAME_URL}
-admin-authorization-server-uri: ${KC_HOSTNAME_ADMIN_URL}
-admin-authorization-server-prefix: ${KC_HTTP_ADMIN_RELATIVE_PATH}
+
 food-url: lb://${FOOD_SERVICE_NAME}
 food-prefix: /api/v1/food
+
 server:
-  port: ${reverse-proxy-port}
+  port: ${GATEWAY_PORT}
 
 spring:
   application:
@@ -26,9 +20,9 @@ spring:
       routes:
         # Keycloak
         - id: authorization-server
-          uri: ${authorization-server-uri}
+          uri: ${KC_HOSTNAME_URL}
           predicates:
-            - Path=${authorization-server-prefix}/**
+            - Path=${KC_HTTP_RELATIVE_PATH}/**
 
         # Food Service
         - id: food-service
