@@ -15,7 +15,7 @@ spring:
       routes:
         # Keycloak
         - id: keycloak
-          uri: ${KC_HOSTNAME_URI}
+          uri: ${KC_HOSTNAME_URL}
           predicates:
             - Path=${KC_HTTP_RELATIVE_PATH}/**
           filters:
