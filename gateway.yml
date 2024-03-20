@@ -19,7 +19,7 @@ spring:
           predicates:
             - Path=${KC_HTTP_RELATIVE_PATH}/**
           filters:
-            - RewritePath={KC_HTTP_RELATIVE_PATH}/(?<segment>.*), /$\{segment}
+            - RewritePath=${KC_HTTP_RELATIVE_PATH}/(?<segment>.*), /$\{segment}
             
         # Keycloak Admin
         - id: keycloak-admin
