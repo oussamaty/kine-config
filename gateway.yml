@@ -10,11 +10,6 @@ spring:
     name: ${GATEWAY_NAME}
   cloud:
     gateway:
-      httpclient:
-        http2:
-          maxHeaderSize: 16384
-        codec:
-          maxHeaderSize: 16384
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       routes:
@@ -33,6 +28,7 @@ spring:
             - Path=${KC_HTTP_ADMIN_RELATIVE_PATH}/**
           filters:
             - RewritePath=${KC_HTTP_ADMIN_RELATIVE_PATH}/(?<segment>.*), /$\{segment}
+            - RequestHeaderSize=10000B
 
         # Food Service
         - id: food-service
