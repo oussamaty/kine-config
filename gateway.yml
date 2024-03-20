@@ -1,15 +1,16 @@
-
 food-url: lb://${FOOD_SERVICE_NAME}
 food-prefix: /api/v1/food
 
 server:
   port: ${GATEWAY_PORT}
+  max-http-header-size: 16384
 
 spring:
   application:
     name: ${GATEWAY_NAME}
   cloud:
     gateway:
+    
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       routes:
@@ -28,7 +29,6 @@ spring:
             - Path=${KC_HTTP_ADMIN_RELATIVE_PATH}/**
           filters:
             - RewritePath=${KC_HTTP_ADMIN_RELATIVE_PATH}/(?<segment>.*), /$\{segment}
-            - RequestHeaderSize=10000B
 
         # Food Service
         - id: food-service
