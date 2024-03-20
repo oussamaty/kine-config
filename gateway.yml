@@ -10,6 +10,11 @@ spring:
     name: ${GATEWAY_NAME}
   cloud:
     gateway:
+      httpclient:
+        http2:
+          maxHeaderSize: 16384
+        codec:
+          maxHeaderSize: 16384
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       routes:
