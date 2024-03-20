@@ -17,15 +17,15 @@ spring:
         - id: keycloak
           uri: ${KC_BACKEND_URL}
           predicates:
-            - Path=/t/**
+            - Path=${KC_HTTP_RELATIVE_PATH}/**
           filters:
-            - RewritePath=${KC_HTTP_RELATIVE_PATH}/(?<segment>.*), /$\{segment}
+            - RewritePath={KC_HTTP_RELATIVE_PATH}/(?<segment>.*), /$\{segment}
             
         # Keycloak Admin
         - id: keycloak-admin
           uri: ${KC_ADMIN_URL}
           predicates:
-            - Path=/a/**
+            - Path=${KC_HTTP_ADMIN_RELATIVE_PATH}/**
           filters:
             - RewritePath=${KC_HTTP_ADMIN_RELATIVE_PATH}/(?<segment>.*), /$\{segment}
 
