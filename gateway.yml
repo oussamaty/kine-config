@@ -3,7 +3,6 @@ food-prefix: /api/v1/food
 
 server:
   port: ${GATEWAY_PORT}
-  max-http-header-size: 16384
 
 spring:
   application:
@@ -21,14 +20,6 @@ spring:
             - Path=${KC_HTTP_RELATIVE_PATH}/**
           filters:
             - RewritePath=${KC_HTTP_RELATIVE_PATH}/(?<segment>.*), /$\{segment}
-            
-        # Keycloak Admin
-        - id: keycloak-admin
-          uri: ${KC_ADMIN_URL}
-          predicates:
-            - Path=${KC_HTTP_ADMIN_RELATIVE_PATH}/**
-          filters:
-            - RewritePath=${KC_HTTP_ADMIN_RELATIVE_PATH}/(?<segment>.*), /$\{segment}
 
         # Food Service
         - id: food-service
