@@ -17,10 +17,17 @@ spring:
         - id: keycloak
           uri: ${KC_BACKEND_URL}
           predicates:
-            - Path=${KC_HTTP_RELATIVE_PATH}/**
+            - Path=/t/**
           filters:
-            - RewritePath=/auth/(?<segment>.*), /$\{segment}
-
+            - RewritePath=${KC_HTTP_RELATIVE_PATH}/(?<segment>.*), /$\{segment}
+            
+        # Keycloak Admin
+        - id: keycloak-admin
+          uri: ${KC_ADMIN_URL}
+          predicates:
+            - Path=/a/**
+          filters:
+            - RewritePath=${KC_HTTP_ADMIN_RELATIVE_PATH}/(?<segment>.*), /$\{segment}
 
         # Food Service
         - id: food-service
