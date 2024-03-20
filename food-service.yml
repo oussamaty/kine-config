@@ -27,7 +27,7 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: ${KC_EXTERNAL_ISSUER}
-          jwk-set-uri: ${KC_INTERNAL_ISSUER}
+          jwk-set-uri: ${KC_INTERNAL_ISSUER}/.well-known/openid-configuration
 
 eureka:
   client:
