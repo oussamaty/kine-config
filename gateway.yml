@@ -1,6 +1,9 @@
 food-url: lb://${FOOD_SERVICE_NAME}
 food-prefix: /api/v1/food
 
+calculator-url: lb://${CALCULATOR_SERVICE_NAME}
+calculator-prefix: /api/v1/calculator
+
 server:
   port: ${GATEWAY_PORT}
 
@@ -9,7 +12,6 @@ spring:
     name: ${GATEWAY_NAME}
   cloud:
     gateway:
-    
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       routes:
@@ -26,6 +28,12 @@ spring:
           uri: ${food-url}
           predicates:
             - Path=${food-prefix}/**
+        
+        # Calculator Service
+        - id: calculator-service
+          uri: ${Calculator-url}
+          predicates:
+            - Path=${calculator-prefix}/**
 
 eureka:
   client:

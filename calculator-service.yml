@@ -1,0 +1,18 @@
+server:
+  port: ${CALCULATOR_SERVICE_PORT}
+  error:
+    include-message: always
+  ssl:
+    enabled: false
+
+origins: ${GATEWAY_URL}
+permit-all: /public/**
+
+spring:
+  application:
+    name: ${CALCULATOR_SERVICE_NAME}
+
+eureka:
+  client:
+    region: default
+    registry-fetch-interval-seconds: 30
