@@ -31,7 +31,7 @@ spring:
         
         # Calculator Service
         - id: calculator-service
-          uri: ${Calculator-url}
+          uri: ${calculator-url}
           predicates:
             - Path=${calculator-prefix}/**
 
