@@ -1,5 +1,5 @@
 server:
-  port: ${CALCULATOR_SERVICE_PORT}
+  port: 8080
   error:
     include-message: always
   ssl:

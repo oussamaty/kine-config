@@ -5,7 +5,7 @@ calculator-url: lb://${CALCULATOR_SERVICE_NAME}
 calculator-prefix: /api/v1/calculator
 
 server:
-  port: ${GATEWAY_PORT}
+  port: 8080
 
 spring:
   application:

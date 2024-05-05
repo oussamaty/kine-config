@@ -1,5 +1,5 @@
 server:
-  port: ${DISCOVERY_PORT}
+  port: 8080
 
 origins: ${GATEWAY_URL}
 permit-all: /actuator/**
