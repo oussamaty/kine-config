@@ -15,6 +15,7 @@ spring:
     url: ${FOOD_SPRING_DATASOURCE_URL}
     username: ${FOOD_DB_USER}
     password: ${FOOD_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
