@@ -36,6 +36,8 @@ spring:
             - Path=${calculator-prefix}/**
 
 eureka:
+  instance:
+    hostname: ${GATEWAY_NAME}
   client:
     region: default
     registry-fetch-interval-seconds: 30

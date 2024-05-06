@@ -30,6 +30,8 @@ spring:
           jwk-set-uri: ${KC_INTERNAL_ISSUER}/protocol/openid-connect/certs
 
 eureka:
+  instance:
+    hostname: ${FOOD_SERVICE_NAME}
   client:
     region: default
     registry-fetch-interval-seconds: 30

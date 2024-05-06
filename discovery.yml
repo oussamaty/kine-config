@@ -14,7 +14,7 @@ spring:
 
 eureka:
   instance:
-    hostname: discovery
+    hostname: ${DISCOVERY_NAME}
   client:
     register-with-eureka: false
     fetch-registry: false

@@ -13,6 +13,8 @@ spring:
     name: ${CALCULATOR_SERVICE_NAME}
 
 eureka:
+  instance:
+    hostname: ${CALCULATOR_SERVICE_NAME}
   client:
     region: default
     registry-fetch-interval-seconds: 30
