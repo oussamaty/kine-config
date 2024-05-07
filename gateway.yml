@@ -9,7 +9,7 @@ server:
   ssl:
     enabled: true
     key-store-type: 'pkcs12'
-    key-store: '/etc/tls/domain-tls.p12'
+    key-store: 'file:/etc/tls/domain-tls.p12'
     key-store-password: ${TLS_PASSWORD}
 
 spring:
@@ -46,9 +46,4 @@ eureka:
   client:
     region: default
     registry-fetch-interval-seconds: 30
-
-log:
-  level:
-    org:
-      springframework:
-        cloud: DEBUG
+    
