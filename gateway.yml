@@ -1,8 +1,8 @@
 food-url: lb://${FOOD_SERVICE_NAME}
-food-prefix: /api/v1/food
+food-prefix: /v1/food
 
 calculator-url: lb://${CALCULATOR_SERVICE_NAME}
-calculator-prefix: /api/v1/calculator
+calculator-prefix: /v1/calculator
 
 server:
   port: 8080
