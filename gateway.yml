@@ -5,12 +5,7 @@ calculator-url: lb://${CALCULATOR_SERVICE_NAME}
 calculator-prefix: /api/v1/calculator
 
 server:
-  port: 8443
-  ssl:
-    enabled: true
-    key-store-type: 'pkcs12'
-    key-store: 'file:/etc/tls/domain-tls.p12'
-    key-store-password: ${TLS_PASSWORD}
+  port: 8080
 
 spring:
   application:
