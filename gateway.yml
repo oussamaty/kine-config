@@ -15,14 +15,6 @@ spring:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       routes:
-        # Keycloak
-        - id: keycloak
-          uri: ${KC_BACKEND_URL}
-          predicates:
-            - Path=${KC_HTTP_RELATIVE_PATH}/**
-          filters:
-            - RewritePath=${KC_HTTP_RELATIVE_PATH}/(?<segment>.*), /$\{segment}
-
         # Food Service
         - id: food-service
           uri: ${food-url}
